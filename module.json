@@ -1,0 +1,12 @@
+{
+  "id": "invisibilityEyeGlitchFix",
+  "name": "Invisibility Eye Glitch Fix",
+  "author": "thetrader",
+  "version": "0.1.0",
+  "released": "10/13/2018",
+  "updated": "10/13/2018",
+  "description": "Fixes messed up eye textures caused by invisibility effects.",
+  "requires": ["unifiedPatchingFramework"],
+  "moduleLoader": "UPF",
+  "canHotLoad": true
+}

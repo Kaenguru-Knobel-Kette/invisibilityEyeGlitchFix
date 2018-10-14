@@ -1,5 +1,4 @@
-/* global ngapp, xelib, registerPatcher, patcherUrl */
-let localsBuilder = require(patcherPath + '\\src\\localsBuilder.js')(patcherPath);
+//= require src/localsBuilder.js
 
 registerPatcher({
     info: info,

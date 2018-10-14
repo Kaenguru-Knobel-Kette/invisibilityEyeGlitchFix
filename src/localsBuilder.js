@@ -1,7 +1,5 @@
-module.exports = function(patcherPath) {
-    let module = {};
-
-    module.setLocals = function(patch, helpers, settings, locals) {
+localsBuilder = {
+    setLocals: function(patch, helpers, settings, locals) {
         let effect = xelib.AddElement(patch, 'MGEF\\MGEF');
         let effectEditorID = 'TT_EyeGlitchFix_Effect';
         helpers.cacheRecord(effect, effectEditorID);
@@ -48,6 +46,4 @@ module.exports = function(patcherPath) {
         xelib.SetValue(effectProperty, 'Value\\Object Union\\Object v2\\FormID', xelib.GetHexFormID(locals.spell, false, false));
         xelib.SetValue(effectProperty, 'Value\\Object Union\\Object v2\\Alias', 'None');
     }
-
-    return module;
 }

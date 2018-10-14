@@ -10,3 +10,5 @@ Open a command prompt in the folder where you cloned the repository. Type `npm i
 `npm run build` creates the dist folder. In the dist folder will be a built index.js JavaScript file (concatenating javascript files you required using //= require), the entire contents of your partials folder, and your module.json file.
 
 `npm run release` creates the releases folder. In the releases folder will be a ZIP archive in the format noDistantLODforNPCs-v{version}.zip. This archive is a release archive that you can upload and share with people. It's set up so users can install it through zEdit's Manage Extensions window.
+
+`npm run test` installs the patcher in zEdit for quick testing. Variable `zEditPath` in gulpfile.js must be set to your zEdit installation. This will overwrite an already exisiting patcher with the same name!

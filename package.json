@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "gulp build",
-    "release": "gulp release"
+    "release": "gulp release",
+    "test": "gulp test"
   },
   "dependencies": {},
   "devDependencies": {

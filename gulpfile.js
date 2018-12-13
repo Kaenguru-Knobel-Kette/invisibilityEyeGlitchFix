@@ -1,13 +1,12 @@
-const fs = require('fs'),
+const del = require('del'),
+	  fs = require('fs'),
       gulp = require('gulp'),
-      clean = require('gulp-clean'),
       concat = require('gulp-concat'),
       zip = require('gulp-zip'),
       zEditPath = 'C:/Users/user/Documents/Skyrim Tools/zEdit_Alpha_v0.5.3';
 
 gulp.task('clean-dist', function() {
-    return gulp.src('dist', {read: false})
-        .pipe(clean());
+    return del('dist');
 });
 
 gulp.task('build-dist', function() {
@@ -26,8 +25,7 @@ gulp.task('uninstall-in-zedit', function() {
     let moduleInfo = JSON.parse(fs.readFileSync('module.json')),
         installationPath = `${zEditPath}/modules/${moduleInfo.id}`;
 
-    return gulp.src(installationPath, {read: false})
-        .pipe(clean({force: true}));
+    return del(installationPath, {force:true});
 });
 
 gulp.task('install-in-zedit', function() {

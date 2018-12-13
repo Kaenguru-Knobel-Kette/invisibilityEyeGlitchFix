@@ -36,7 +36,7 @@ gulp.task('install-in-zedit', function() {
 		.pipe(gulp.dest(installationPath));
 });
 
-gulp.task('release', function() {
+gulp.task('build-release', function() {
 	let moduleInfo = JSON.parse(fs.readFileSync('module.json')),
 		moduleId = moduleInfo.id,
 		moduleVersion = moduleInfo.version,
@@ -50,5 +50,7 @@ gulp.task('release', function() {
 });
 
 gulp.task('build', gulp.series('clean-dist', 'build-dist'));
+
+gulp.task('release', gulp.series('clean-dist', 'build-dist', 'build-release'));
 
 gulp.task('test', gulp.series('uninstall-in-zedit', 'install-in-zedit'));

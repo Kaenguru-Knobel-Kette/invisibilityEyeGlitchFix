@@ -29,7 +29,7 @@ localsBuilder = {
 		locals.spell = xelib.AddElement(patch, 'SPEL\\SPEL');
 		let spellEditorID = 'TT_EyeGlitchFix_Spell';
 		helpers.cacheRecord(locals.spell, spellEditorID);
-		xelib.AddElementValue(locals.spell, 'EDID', effectEditorID);
+		xelib.AddElementValue(locals.spell, 'EDID', spellEditorID);
 		xelib.AddElementValue(locals.spell, 'FULL', 'Eye Glitch Fix');
 		xelib.AddElementValue(locals.spell, 'ETYP', 'EitherHand [EQUP:00013F44]');
 		xelib.AddElement(locals.spell, 'SPIT');

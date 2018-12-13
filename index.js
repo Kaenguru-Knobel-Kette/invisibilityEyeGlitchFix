@@ -32,10 +32,10 @@ registerPatcher({
 					xelib.SetIntValue(record, 'VMAD\\Version', 5);
 					xelib.SetIntValue(record, 'VMAD\\Object Format', 2);
 				}
-				let Script = xelib.AddArrayItem(record, 'VMAD\\Scripts', 'scriptName', 'TT_InvisibilityEyeGlitchActivator');
-				let Property = xelib.AddScriptProperty(Script, 'EyeGlitchFix', 'Object', 'Edited');
-				xelib.SetValue(Property, 'Value\\Object Union\\Object v2\\FormID', xelib.GetHexFormID(locals.spell, false, false));
-				xelib.SetValue(Property, 'Value\\Object Union\\Object v2\\Alias', 'None');
+				let script = xelib.AddArrayItem(record, 'VMAD\\Scripts', 'scriptName', 'TT_InvisibilityEyeGlitchActivator');
+				let property = xelib.AddScriptProperty(script, 'EyeGlitchFix', 'Object', 'Edited');
+				xelib.SetValue(property, 'Value\\Object Union\\Object v2\\FormID', xelib.GetHexFormID(locals.spell, false, false));
+				xelib.SetValue(property, 'Value\\Object Union\\Object v2\\Alias', 'None');
 			}
 		}]
 	}

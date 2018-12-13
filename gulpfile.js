@@ -3,6 +3,7 @@ const fs = require('fs');
 const gulp = require('gulp');
 const concat = require('gulp-concat');
 const zip = require('gulp-zip');
+
 const zEditPath = 'C:/Users/user/Documents/Skyrim Tools/zEdit_Alpha_v0.5.3';
 
 gulp.task('clean-dist', function() {
@@ -51,6 +52,6 @@ gulp.task('build-release', function() {
 
 gulp.task('build', gulp.series('clean-dist', 'build-dist'));
 
-gulp.task('release', gulp.series('clean-dist', 'build-dist', 'build-release'));
+gulp.task('test', gulp.series('clean-dist', 'build-dist', 'uninstall-in-zedit', 'install-in-zedit'));
 
-gulp.task('test', gulp.series('uninstall-in-zedit', 'install-in-zedit'));
+gulp.task('release', gulp.series('clean-dist', 'build-dist', 'build-release'));

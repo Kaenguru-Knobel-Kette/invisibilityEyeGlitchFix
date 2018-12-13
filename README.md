@@ -7,8 +7,8 @@ Download [NodeJS](https://nodejs.org/en/download) and install it. This will allo
 
 Open a command prompt in the folder where you cloned the repository. Type `npm install` to install packages.
 
-`npm run build` creates the dist folder. In the dist folder will be a built index.js JavaScript file (concatenating javascript files you required using //= require), the entire contents of your partials folder, and your module.json file.
+`npm run build` creates the dist folder. In the dist folder will be a built index.js JavaScript file (concatenating index.js and all javascript files in the src folder), the entire contents of your partials folder and your module.json file.
 
-`npm run release` creates the releases folder. In the releases folder will be a ZIP archive in the format noDistantLODforNPCs-v{version}.zip. This archive is a release archive that you can upload and share with people. It's set up so users can install it through zEdit's Manage Extensions window.
+`npm run release` creates a ZIP archive in the releases folder. This archive is a release archive that you can upload and share with people. It's set up so users can install it through zEdit's Manage Extensions window.
 
 `npm run test` installs the patcher in zEdit for quick testing. Variable `zEditPath` in gulpfile.js must be set to your zEdit installation. This will overwrite an already exisiting patcher with the same name!

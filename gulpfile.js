@@ -1,29 +1,28 @@
 const fs = require('fs'),
       gulp = require('gulp'),
       clean = require('gulp-clean'),
-      include = require('gulp-include'),
+      concat = require('gulp-concat'),
       zip = require('gulp-zip'),
-      zEditPath = 'C:/Users/user/Documents/Skyrim Tools/zEdit_Alpha_v0.4.3';
+      zEditPath = 'C:/Users/user/Documents/Skyrim Tools/zEdit_Alpha_v0.5.3';
 
-gulp.task('clean', function() {
+gulp.task('clean-dist', function() {
     return gulp.src('dist', {read: false})
         .pipe(clean());
 });
 
-gulp.task('build', ['clean'], function() {
-    gulp.src('index.js')
-        .pipe(include())
-        .on('error', console.log)
+gulp.task('build-dist', function() {
+    gulp.src(['index.js', 'src/*.js'])
+        .pipe(concat('index.js'))
         .pipe(gulp.dest('dist'));
 
     gulp.src('partials/*.html')
         .pipe(gulp.dest('dist/partials'));
 
-    gulp.src('module.json')
+    return gulp.src('module.json')
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean-test', function() {
+gulp.task('uninstall-in-zedit', function() {
     let moduleInfo = JSON.parse(fs.readFileSync('module.json')),
         installationPath = `${zEditPath}/modules/${moduleInfo.id}`;
 
@@ -31,11 +30,11 @@ gulp.task('clean-test', function() {
         .pipe(clean({force: true}));
 });
 
-gulp.task('test', ['clean-test'], function() {
+gulp.task('install-in-zedit', function() {
     let moduleInfo = JSON.parse(fs.readFileSync('module.json')),
         installationPath = `${zEditPath}/modules/${moduleInfo.id}`;
 
-    gulp.src('dist/**/*')
+    return gulp.src('dist/**/*')
         .pipe(gulp.dest(installationPath));
 });
 
@@ -47,9 +46,11 @@ gulp.task('release', function() {
 
     console.log(`Packaging ${zipFileName}`);
 
-    gulp.src('dist/**/*', { base: 'dist/'})
+    return gulp.src('dist/**/*', { base: 'dist/'})
         .pipe(zip(zipFileName))
         .pipe(gulp.dest('releases'));
 });
 
-gulp.task('default', ['build']);
+gulp.task('build', gulp.series('clean-dist', 'build-dist'));
+
+gulp.task('test', gulp.series('uninstall-in-zedit', 'install-in-zedit'));

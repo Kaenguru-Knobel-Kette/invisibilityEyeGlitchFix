@@ -1,5 +1,3 @@
-//= require src/localsBuilder.js
-
 registerPatcher({
     info: info,
     gameModes: [xelib.gmTES5, xelib.gmSSE],

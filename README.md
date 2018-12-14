@@ -3,7 +3,7 @@ An UPF patcher for Skyrim and Skyrim Special Edition. Fixes messed up eye textur
 
 The Unified Patching Framework (UPF) is a core module provided with [zEdit](https://github.com/z-edit/zedit) to generate patch plugins.
 # Developement
-Download [NodeJS](https://nodejs.org/en/download) and install it. This will allow you to use `npm` from the command line to install NodeJS packages. We use `npm` to set up a gulp build system so we can use multiple JavaScript source files in development and create release archives with a single command.
+Download [NodeJS](https://nodejs.org/en/download) and install it. This will allow you to use `npm` from the command line to install NodeJS packages. We use `npm` to set up a gulp build system so we can use multiple JavaScript source files in development, quickly install the patcher in zEdit and create release archives with a single command.
 
 Open a command prompt in the folder where you cloned the repository. Type `npm install` to install packages.
 

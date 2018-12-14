@@ -3,7 +3,7 @@ registerPatcher({
 	gameModes: [xelib.gmTES5, xelib.gmSSE],
 	settings: {
 		label: 'Invisibility Eye Glitch Fix',
-		hidden: true,
+		hide: true,
 		templateUrl: `${patcherUrl}/partials/settings.html`,
 		defaultSettings: {}
 	},

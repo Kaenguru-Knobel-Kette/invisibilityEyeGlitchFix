@@ -43,8 +43,6 @@ gulp.task('build-release', function() {
 		moduleVersion = moduleInfo.version,
 		zipFileName = `${moduleId}-v${moduleVersion}.zip`;
 
-	console.log(`Packaging ${zipFileName}`);
-
 	return gulp.src('dist/**/*', { base: 'dist/'})
 		.pipe(zip(zipFileName))
 		.pipe(gulp.dest('releases'));

@@ -10,14 +10,18 @@ gulp.task('clean-dist', function() {
 	return del('dist');
 });
 
-gulp.task('build-dist', function() {
-	gulp.src(['index.js', 'src/*.js'])
+gulp.task('dist-index', function() {
+	return gulp.src(['src/*.js', 'index.js'])
 		.pipe(concat('index.js'))
 		.pipe(gulp.dest('dist'));
+});
 
-	gulp.src('partials/*.html')
+gulp.task('dist-partials', function() {
+	return gulp.src('partials/*.html')
 		.pipe(gulp.dest('dist/partials'));
+});
 
+gulp.task('dist-module', function() {
 	return gulp.src('module.json')
 		.pipe(gulp.dest('dist'));
 });
@@ -47,6 +51,8 @@ gulp.task('build-release', function() {
 		.pipe(zip(zipFileName))
 		.pipe(gulp.dest('releases'));
 });
+
+gulp.task('build-dist', gulp.parallel('dist-index', 'dist-partials', 'dist-module'));
 
 gulp.task('build', gulp.series('clean-dist', 'build-dist'));
 
